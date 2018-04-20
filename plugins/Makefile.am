@@ -1,12 +1,8 @@
 DIST_SUBDIRS =		\
 	changecase 	\
 	docinfo 	\
-	externaltools	\
 	filebrowser 	\
 	modelines	\
-	pythonconsole	\
-	quickopen	\
-	snippets	\
 	sort 		\
 	spell 		\
 	taglist 	\
@@ -16,12 +12,8 @@ DIST_SUBDIRS =		\
 SUBDIRS = 		\
 	changecase	\
 	docinfo		\
-	externaltools	\
 	filebrowser	\
 	modelines	\
-	pythonconsole	\
-	quickopen	\
-	snippets	\
 	sort		\
 	taglist		\
 	time		\
