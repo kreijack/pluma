@@ -154,8 +154,8 @@ PKG_CHECK_MODULES(PLUMA, [
 	gio-2.0 >= 2.50.0
 	gtk+-3.0 >= $GTK_REQUIRED
 	gtksourceview-3.0 >= $GTKSOURCEVIEW_REQUIRED
-	libpeas-1.0 >= 1.2.0
-	libpeas-gtk-1.0 >= 1.2.0
+	libpeas-1.0 >= 1.8.0
+	libpeas-gtk-1.0 >= 1.8.0
 ])
 
 PKG_CHECK_MODULES(X11, [x11])
@@ -181,7 +181,7 @@ else
 	have_introspection=no
 fi
 
-AM_PATH_PYTHON([2.7])
+AM_PATH_PYTHON([3.5])
 
 dnl ================================================================
 dnl GSettings related settings
