@@ -74,7 +74,7 @@ class ToolLibrary(Singleton):
         if not os.path.isfile(filename):
             return
 
-        print "External tools: importing old tools into the new store..."
+        print ("External tools: importing old tools into the new store...")
 
         xtree = et.parse(filename)
         xroot = xtree.getroot()
@@ -145,8 +145,7 @@ class ToolDirectory(object):
                 continue
             for i in os.listdir(d):
                 elements[i] = None
-        keys = elements.keys()
-        keys.sort()
+        keys = sorted (elements.keys())
         return keys
 
     def _load(self):
@@ -231,7 +230,7 @@ class Tool(object):
         if filename is None:
             return
 
-        fp = file(filename, 'r', 1)
+        fp = open(filename, 'r', 1)
         in_block = False
         lang = locale.getlocale(locale.LC_MESSAGES)[0]
 
@@ -395,7 +394,7 @@ class Tool(object):
 
     def _dump_properties(self):
         lines = ['# [Pluma Tool]']
-        for item in self._properties.iteritems():
+        for item in self._properties.items():
             if item[0] in self._transform:
                 lines.append('# %s=%s' % (item[0], self._transform[item[0]][1](item[1])))
             elif item[1] is not None:
@@ -439,7 +438,7 @@ class Tool(object):
             fp.write(line + "\n")
 
         fp.close()
-        os.chmod(filename, 0750)
+        os.chmod(filename, 0o750)
         self.changed = False
 
     def save(self):
@@ -466,10 +465,10 @@ if __name__ == '__main__':
     library = ToolLibrary()
 
     def print_tool(t, indent):
-        print indent * "  " + "%s: %s" % (t.filename, t.name)
+        print (indent * "  " + "%s: %s" % (t.filename, t.name))
 
     def print_dir(d, indent):
-        print indent * "  " + d.dirname + '/'
+        print (indent * "  " + d.dirname + '/')
         for i in d.subdirs:
             print_dir(i, indent+1)
         for i in d.tools:

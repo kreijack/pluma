@@ -21,10 +21,10 @@ __all__ = ('OutputPanel', 'UniqueById')
 
 import os
 from weakref import WeakKeyDictionary
-from capture import *
+from .capture import *
 import re
-import linkparsing
-import filelookup
+from . import linkparsing
+from . import filelookup
 from gi.repository import GLib, Gdk, Gtk, Pango, Pluma
 
 class UniqueById:
