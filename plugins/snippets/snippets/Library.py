@@ -24,7 +24,7 @@ import re
 from gi.repository import Gdk, Gtk
 
 import xml.etree.ElementTree as et
-from Helper import *
+from .Helper import *
 
 class NamespacedId:
         def __init__(self, namespace, id):
@@ -453,7 +453,7 @@ class SnippetsSystemFile:
                                 lambda node: elements.append((node, True)), \
                                 lambda node: elements.append((node, False)))
 
-                parser = et.XMLTreeBuilder(target=builder)
+                parser = et.XMLParser(target=builder)
                 self.insnippet = False
                 
                 try:
@@ -611,7 +611,7 @@ class SnippetsUserFile(SnippetsSystemFile):
                 
                 try:
                         if not os.path.isdir(path):
-                                os.makedirs(path, 0755)
+                                os.makedirs(path, 0o755)
                 except OSError:
                         # TODO: this is bad...
                         sys.stderr.write("Error in making dirs\n")

@@ -145,9 +145,9 @@ def _write_node(node, file, cdata_nodes=(), indent=0):
                 if node.tail and node.tail.strip() != "":
                         file.write(saxutils.escape(node.tail.encode('utf-8')))
 
-def _cdata(text, replace=string.replace):
+def _cdata(text):
         text = text.encode('utf-8')
-        return '<![CDATA[' + replace(text, ']]>', ']]]]><![CDATA[>') + ']]>'
+        return '<![CDATA[' + text.replace(']]>', ']]]]><![CDATA[>') + ']]>'
 
 def buffer_word_boundary(buf):
         iter = buf.get_iter_at_mark(buf.get_insert())
